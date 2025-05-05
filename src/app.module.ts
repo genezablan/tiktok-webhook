@@ -7,7 +7,11 @@ import { KafkaProducerModule } from './kafka-producer/kafka-producer.module';
 import { WebhooksModule } from './webhooks/webhooks.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), KafkaProducerModule, WebhooksModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    KafkaProducerModule,
+    WebhooksModule,
+  ],
   controllers: [AppController, WebhooksController],
   providers: [AppService],
 })
