@@ -3,5 +3,6 @@ export class KafkaMessageDto {
   messages: {
     key: string;
     value: string;
+    partition?: number;
   }[];
 }

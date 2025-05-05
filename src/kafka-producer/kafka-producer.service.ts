@@ -6,8 +6,8 @@ import { KafkaMessageDto } from './kafka-producer.dto';
 @Injectable()
 export class KafkaProducerService implements OnModuleInit {
   private readonly kafka = new Kafka({
-    clientId: 'tiktok-webhooks',
-    brokers: ['localhost:9092'], // Redpanda is compatible with Kafka clients
+    clientId: 'tiktok-webhook',
+    brokers: ['localhost:19092'], // Redpanda is compatible with Kafka clients
   });
 
   private producer = this.kafka.producer();

@@ -21,7 +21,7 @@ export class WebhooksController {
       topic: 'tiktok-webhooks',
       messages: [
         {
-          key: body.tts_notification_id,
+          key: body.data.order_id,
           value: JSON.stringify(body),
         },
       ],
