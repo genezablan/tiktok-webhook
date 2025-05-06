@@ -3,17 +3,13 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Kafka, KafkaConfig, Producer, SASLOptions } from 'kafkajs';
 import { KafkaMessageDto } from './kafka-producer.dto';
 import { ConfigService } from '@nestjs/config';
-import { KafkaClientConfigService } from './kafka.config';
 @Injectable()
 export class KafkaProducerService implements OnModuleInit {
   private kafka: Kafka;
   private producer: Producer;
 
-  constructor(
-    private readonly configService: ConfigService,
-    private readonly kafkaClientConfigService: KafkaClientConfigService,
-  ) {
-    const config = this.kafkaClientConfigService.getKafkaConfig();
+  constructor(private readonly configService: ConfigService) {
+    const config = this.getKafkaConfig();
     this.kafka = new Kafka(config);
     this.producer = this.kafka.producer();
   }
